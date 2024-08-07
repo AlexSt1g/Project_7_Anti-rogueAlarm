@@ -16,12 +16,6 @@ public class Alarm : MonoBehaviour
         _audioSource.volume = 0;
     }
 
-    private void Update()
-    {
-        if (_audioSource.volume <= _minVolume)
-            _audioSource.Stop();
-    }
-
     public void TurnOn()
     {
         if (_audioSource.isPlaying == false)
@@ -53,5 +47,8 @@ public class Alarm : MonoBehaviour
 
             yield return wait;
         }
+
+        if (_audioSource.volume <= _minVolume)
+            _audioSource.Stop();
     }
 }
